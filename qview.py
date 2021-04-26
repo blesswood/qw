@@ -15,6 +15,7 @@ if ("-h" in sys.argv or len(sys.argv)<=1 or "-h" in sys.argv):
 
 """)
     print("\nqw {bind}")
+    print("qw --add-bind")
     print("\n\nThanks!")
     sys.exit()
 
@@ -28,7 +29,8 @@ if ("--add-bind" in sys.argv):
     os.system('echo "command = %s" >> /usr/bin/data_qview.py' % (str(command)))
 
 u = " "
-
 for i in range(len(command)):
+    if ("%s" in command[i]):
+        command[i] = command[i] % (str(sys.argv[len(sys.argv)-1]))
     if (bind[i] in u.join(sys.argv)):
         os.system(command[i])
