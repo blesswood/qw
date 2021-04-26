@@ -3,7 +3,7 @@ QuickViewer
 Simplify large commands, using qw 
 
 Installing:  
-python3 setup_qw.py  
+python3 setup_qviewv0..py  
 Then set bindings you want step by step (bind-command)  
 
 Using:  
