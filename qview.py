@@ -31,6 +31,9 @@ if ("--add-bind" in sys.argv):
 u = " "
 for i in range(len(command)):
     if ("%s" in command[i]):
-        command[i] = command[i] % (str(sys.argv[len(sys.argv)-1]))
+        if sys.argv[len(sys.argv)-1]!=bind[i]:
+            command[i] = command[i] % (str(sys.argv[len(sys.argv)-1]))
+        else:
+            command[i] = command[i] % u
     if (bind[i] in u.join(sys.argv)):
         os.system(command[i])

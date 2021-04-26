@@ -37,6 +37,7 @@ os.system('echo "command = %s" >> data_qview.py' % (str(command_list)))
 
 
 os.system("sudo cp data_qview.py /usr/bin && sudo chown %s /usr/bin/data_qview.py &&sudo chmod 755 /usr/bin/data_qview.py" % getpass.getuser())
+os.system("sudo rm data_qview.py")
 os.system("sudo cp qview.py /usr/bin && sudo chmod 755 /usr/bin/qview.py && sudo chmod +x /usr/bin/qview.py")
 os.chdir("/usr/bin")
 os.system("sudo ln -s qview.py qw")
