@@ -2,15 +2,15 @@
 QuickViewer  
 Simplify large commands, using qw 
 
-#####Installing:  
+####Installing:  
 >python3 setup_qview.py  
 
 Then set bindings you want step by step (bind-command), after last edition add "##" (without quotes)  
 
-#####Usage:  
+####Usage:  
 > qw {bind}  
   
-#####Help:  
+####Help:  
 qw  
 &emsp;--add  
 &emsp;&emsp;Add bind  
@@ -19,7 +19,7 @@ qw
 &emsp;--delete  
 &emsp;&emsp;Delete bind  
   
-#####Example:  
+####Example:  
 > qw --add  
 > Bind: dkr  
 > Command: ssh root@192.168.1.43 docker ps  
@@ -28,5 +28,5 @@ qw
 > CONTAINER ID        IMAGE                                                                    COMMAND                  CREATED             STATUS              PORTS               NAMES  
   
   
-#####Bugs:  
+####Bugs:  
 Set fileformat to "unix" if you see "bash: /usr/bin/qw: /usr/bin/python3^M: bad interpreter: No such file or directory"
