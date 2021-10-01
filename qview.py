@@ -64,7 +64,11 @@ if "-t" in sys.argv:
             a_vars = sys.argv[i+1:]
 
 for i in range(len(command)):
-    if (bind[i] in u.join(sys.argv)):
+    if "{}" in command[i]:
+        cc = command[i].count("{}") + 1
+    else:
+        cc = 0
+    if (bind[i]==u.join(sys.argv[1:len(sys.argv)-cc])):
         if "-t" in sys.argv:
             for k in range(len(a_vars)):
                 command[i] = command[i].replace("{}", a_vars[k])
