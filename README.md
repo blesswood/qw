@@ -18,6 +18,8 @@ qw
 &emsp;&emsp;Print list of binds  
 &emsp;--delete  
 &emsp;&emsp;Delete bind  
+&emsp;-t  
+&emsp;&emsp;Use args  
 &emsp;-h  
 &emsp;&emsp;This help  
   
@@ -28,6 +30,13 @@ qw
   
 > [root@192.168.1.42 ~]$ qw dkr  
 > CONTAINER ID        IMAGE                                                                    COMMAND                  CREATED             STATUS              PORTS               NAMES  
+ 
+To add args:  
+> qw --add
+> Bind: dkr
+> Command: ssh root@129.168.1.43 docker logs {}
+
+> [root@192.168.1.42 ~]$ qw dkr -t 7d511559e0  
   
   
 #### Bugs:  
