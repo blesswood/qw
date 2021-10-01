@@ -40,4 +40,7 @@ To add args:
   
   
 #### Bugs:  
-Set fileformat to "unix" if you see "bash: /usr/bin/qw: /usr/bin/python3^M: bad interpreter: No such file or directory"
+Set fileformat to "unix" if you see "bash: /usr/bin/qw: /usr/bin/python3^M: bad interpreter: No such file or directory"  
+  
+#### Fixed:  
+Similar binds now do not stack (ex: bind "dkrt" now do not call bind "dkr")  
