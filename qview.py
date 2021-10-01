@@ -4,7 +4,7 @@ import os
 import sys
 import data_qview
 
-if ("-h" in sys.argv or len(sys.argv)<=1 or "-h" in sys.argv):
+if ("-h" in sys.argv or len(sys.argv)<=1 or "--help" in sys.argv):
     print("""
   ___        _      _           _    __        __
  / _ \ _   _(_) ___| | ____   _(_) __\ \      / /
@@ -21,6 +21,8 @@ if ("-h" in sys.argv or len(sys.argv)<=1 or "-h" in sys.argv):
     print("        Print list of binds")
     print("    --delete")
     print("        Delete bind")
+    print("    -h")
+    print("        This help")
     print("\n\nThanks!")
     sys.exit()
 
@@ -33,7 +35,7 @@ if ("--list" in sys.argv):
     print("{0:10s} {1:10s}".format("Bind", "Command"))
     for i in range(len(command)):
         print("{0:10s} {1:10s}".format(bind[i], command[i]))
-if ("--delete" in sys.argv):
+elif ("--delete" in sys.argv):
     to_del = " ".join(sys.argv).split("--delete ")[len(to_del)-1]
     print(to_del)
     for i in range(len(bind)):
@@ -46,7 +48,7 @@ if ("--delete" in sys.argv):
     os.system('echo "command = %s" >> /usr/bin/data_qview.py' % (str(command)))
 
 
-if ("--add" in sys.argv):
+elif ("--add" in sys.argv):
     bind.append(input("Bind: "))
     command.append(input("Command: "))
     os.system('echo "bind = %s" > /usr/bin/data_qview.py' % (str(bind)))
@@ -54,6 +56,20 @@ if ("--add" in sys.argv):
 
 u = " "
 
+a_vars = []
+
+if "-t" in sys.argv:
+    for i in range(len(sys.argv)):
+        if sys.argv[i]=="-t":
+            a_vars = sys.argv[i+1:]
+
 for i in range(len(command)):
     if (bind[i] in u.join(sys.argv)):
-        os.system(command[i])
+        if "-t" in sys.argv:
+            for k in range(len(a_vars)):
+                command[i] = command[i].replace("{}", a_vars[k])
+        if "{}" in command[i]:
+            print("Not enought args given, command: {}".format(command[i]))
+        else:
+            print(command[i])
+            os.system(command[i])
