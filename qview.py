@@ -21,6 +21,8 @@ if ("-h" in sys.argv or len(sys.argv)<=1 or "--help" in sys.argv):
     print("        Print list of binds")
     print("    --delete")
     print("        Delete bind")
+    print("    -t")
+    print("        Use args")
     print("    -h")
     print("        This help")
     print("\n\nThanks!")
