@@ -32,9 +32,9 @@ qw
 > CONTAINER ID        IMAGE                                                                    COMMAND                  CREATED             STATUS              PORTS               NAMES  
  
 To add args:  
-> qw --add
-> Bind: dkr
-> Command: ssh root@129.168.1.43 docker logs {}
+> qw --add  
+> Bind: dkr  
+> Command: ssh root@129.168.1.43 docker logs {}  
 
 > [root@192.168.1.42 ~]$ qw dkr -t 7d511559e0  
   
